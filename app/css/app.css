@@ -1,0 +1,17 @@
+body {
+    padding-top: 20px;
+}
+
+#wrapper {
+    background-color: #eeeeee;
+    width: 900px;
+    border: 2px solid red;
+    margin: 0 auto;
+}
+
+.spalte {
+    width: 200px;
+    background-color: yellow;
+    float: left;
+    display: block;
+}

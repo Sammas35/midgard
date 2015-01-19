@@ -1,0 +1,35 @@
+{
+  "groupList": [
+    {
+      "name": "Die Guten",
+      "memberList": [
+        {
+          "name": "Jim"
+        },
+        {
+          "name": "Joe"
+        }
+      ]
+    },
+    {
+      "name": "Die Bösen",
+      "memberList": [
+        {
+          "name": "Ork 1"
+        },
+        {
+          "name": "Ork 2"
+        },
+        {
+          "name": "Ork 3"
+        },
+        {
+          "name": "Ork 4"
+        },
+        {
+          "name": "Ork 5"
+        }
+      ]
+    }
+  ]
+}

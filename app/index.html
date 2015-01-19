@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="midgardApp">
+<head>
+    <title>Elvis</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+
+    <link href="css/app.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/combatCtrl.js"></script>
+</head>
+<body>
+<div ng-controller="CombatCtrl" id="wrapper">
+    <div>
+        <h3>Midgard</h3>
+    </div>
+
+    <div class="spalte" ng-repeat="group in data.groupList">
+        <div ng-repeat="member in group.memberList">
+            {{member.name}}
+        </div>
+    </div>
+</div>
+</body>
+</html>
