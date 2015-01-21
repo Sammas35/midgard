@@ -1,17 +1,53 @@
-body {
-    padding-top: 20px;
+* {
+    margin: 0;
+    padding: 0;
 }
 
-#wrapper {
-    background-color: #eeeeee;
-    width: 900px;
-    border: 2px solid red;
+body {
+    padding: 20px 10px;
     margin: 0 auto;
+    width: 900px;
+}
+
+header, section {
+    display: block;
+}
+
+header {
+    padding: 40px 10px;
+    background-color: #eeeeee;
+}
+
+section {
+    /*background-color: #00b3ee;*/
 }
 
 .spalte {
-    width: 200px;
-    background-color: yellow;
+    margin: 2px;
+    padding: 5px;
+    /*background-color: #666600;*/
+    width: 400px;
     float: left;
     display: block;
+}
+
+.meter {
+    float: left;
+    border: solid black 1px;
+    margin-right: 3px;
+}
+
+.meter > div {
+    background-color: orange;
+    width: 100%;
+    height: 10px;
+}
+
+.grayed {
+    background-color: #888888;
+}
+
+.combatant {
+    clear: both;
+    border: solid green 1px;
 }

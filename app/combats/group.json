@@ -4,10 +4,16 @@
       "name": "Die Guten",
       "memberList": [
         {
-          "name": "Jim"
+          "name": "Jim",
+          "rw": 68,
+          "lp": 16,
+          "currentLp": 8
         },
         {
-          "name": "Joe"
+          "name": "Joe",
+          "rw": 85,
+          "lp": 15,
+          "currentLp": 14
         }
       ]
     },
@@ -15,19 +21,34 @@
       "name": "Die Bösen",
       "memberList": [
         {
-          "name": "Ork 1"
+          "name": "Ork 1",
+          "rw": 70,
+          "lp": 14,
+          "currentLp": 2
         },
         {
-          "name": "Ork 2"
+          "name": "Ork 2",
+          "rw": 74,
+          "lp": 16,
+          "currentLp": 16
         },
         {
-          "name": "Ork 3"
+          "name": "Ork 3",
+          "rw": 72,
+          "lp": 18,
+          "currentLp": 18
         },
         {
-          "name": "Ork 4"
+          "name": "Ork 4",
+          "rw": 73,
+          "lp": 14,
+          "currentLp": -10
         },
         {
-          "name": "Ork 5"
+          "name": "Ork 5",
+          "rw": 71,
+          "lp": 16,
+          "currentLp": 1
         }
       ]
     }
