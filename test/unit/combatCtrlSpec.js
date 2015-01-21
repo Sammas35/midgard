@@ -81,6 +81,34 @@ describe("CombatCtrl", function () {
         });
     });
 
+    describe("roundListDone", function () {
+        var roundListDone;
+        beforeEach(function () {
+            roundListDone = scope.roundListDone();
+        });
+
+        it("should have no members", function () {
+            expect(roundListDone.length).toBe(0);
+        });
+    });
+
+    describe("roundListOpen", function () {
+        var roundListOpen;
+        beforeEach(function () {
+            roundListOpen = scope.roundListOpen();
+        });
+
+        it("should have six members: all but Joe", function () {
+            expect(roundListOpen.length).toBe(6);
+            expect(roundListOpen[0].name).toBe('Ork 2');
+            expect(roundListOpen[1].name).toBe('Ork 4');
+            expect(roundListOpen[2].name).toBe('Ork 3');
+            expect(roundListOpen[3].name).toBe('Ork 5');
+            expect(roundListOpen[4].name).toBe('Ork 1');
+            expect(roundListOpen[5].name).toBe('Jim');
+        });
+    });
+
     describe("group 1", function () {
         var group;
 
