@@ -11,9 +11,6 @@ var Combatant = function (jsonCombatant) {
     };
 
     this.isCurrent = function () {
-        if (this.name === 'Jim') {
-            return true;
-        }
-        return false;
+        return this.name === 'Jim';
     }
 };

@@ -1,6 +1,6 @@
 var midgardApp = angular.module('midgardApp');
 
-midgardApp.controller('CombatCtrl', ['$scope', '$http', function ($scope, $http) {
+midgardApp.controller('CombatCtrl', ['$scope', '$http', 'midgard', function ($scope, $http, midgard) {
     var group;
 
     this.round = undefined;

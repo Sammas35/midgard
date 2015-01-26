@@ -4,9 +4,10 @@ describe("CombatCtrl", function () {
     var ctrl;
     var scope;
     var $httpBackend;
+    var midgard;
 
     beforeEach(module("midgardApp"));
-    beforeEach(inject(function ($rootScope, $controller, _$httpBackend_) {
+    beforeEach(inject(function ($rootScope, $controller, _$httpBackend_, _midgard_) {
         $httpBackend = _$httpBackend_;
         $httpBackend.expectGET('combats/group.json').
             respond({
@@ -42,6 +43,7 @@ describe("CombatCtrl", function () {
         );
 
         scope = $rootScope.$new();
+        midgard = _midgard_;
         ctrl = $controller('CombatCtrl', {$scope: scope});
     }));
 

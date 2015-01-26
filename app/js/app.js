@@ -38,4 +38,5 @@ midgardApp.directive('masCombatant', function () {
         },
         templateUrl: 'mas-combatant.html'
     };
-})
+});
+
