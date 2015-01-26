@@ -3,6 +3,8 @@ var midgardApp = angular.module('midgardApp');
 midgardApp.factory('midgard', ['$http', function ($http) {
     var midgard = {};
 
+    dump('Start of midgard service');
+
     midgard.round = undefined;
 
     midgard.groupList = [];
@@ -19,7 +21,7 @@ midgardApp.factory('midgard', ['$http', function ($http) {
         return result.sort(function (a, b) {
             return b.rw - a.rw;
         });
-    }
+    };
 
     var getRound = function () {
         if (!midgard.round) {
@@ -45,12 +47,15 @@ midgardApp.factory('midgard', ['$http', function ($http) {
 
     midgard.groupList = [];
 
-    midgard.load = function () {
+    midgard.load = function (callback) {
+        dump('midgard.load started');
         $http.get('combats/group.json')
             .then(function (response) {
                 var group;
                 var comb;
                 var i, j;
+
+                dump('midgard.load promise.then entered');
 
                 midgard.groupList = response.data.groupList;
 
@@ -61,6 +66,12 @@ midgardApp.factory('midgard', ['$http', function ($http) {
                         comb = group.memberList[j];
                         group.memberList[j] = new Combatant(comb);
                     }
+                }
+
+                if(callback) {
+                    dump('calls callback inside midgard.load')
+                    callback();
+                    dump('callback inside midgard.load called')
                 }
             });
     };

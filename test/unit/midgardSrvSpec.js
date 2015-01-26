@@ -51,14 +51,29 @@ describe('midgard', function () {
         expect(midgard.groupList).toBeDefined();
     });
 
-    it("should have a property groupList", function () {
+    it("should have elements in property groupList after load", function () {
         expect(midgard.groupList.length).toBe(0);
         midgard.load();
+        expect(midgard.groupList.length).toBe(0);
         $httpBackend.flush();
         expect(midgard.groupList.length).toBe(2);
     });
 
-    describe("roundList", function () {
+    it("should use callback with load when present", function () {
+        var callbackCalled = false;
+
+        midgard.load(function () {
+            callbackCalled = true;
+        })
+
+        expect(callbackCalled).toBeFalsy();
+
+        $httpBackend.flush();
+
+        expect(callbackCalled).toBeTruthy();
+    });
+
+    describe("roundList after load", function () {
         var roundList;
         beforeEach(function () {
             midgard.load();
@@ -85,7 +100,7 @@ describe('midgard', function () {
         });
     });
 
-    describe("nextCombatant", function () {
+    describe("nextCombatant after load", function () {
         beforeEach(function () {
             midgard.load();
             $httpBackend.flush();
@@ -112,7 +127,7 @@ describe('midgard', function () {
         })
     });
 
-    describe("roundListDone", function () {
+    describe("roundListDone after load", function () {
         var roundListDone;
 
         beforeEach(function () {
@@ -127,7 +142,7 @@ describe('midgard', function () {
         });
     });
 
-    describe("current", function () {
+    describe("current after load", function () {
         var current;
 
         beforeEach(function () {
@@ -142,7 +157,7 @@ describe('midgard', function () {
         });
     });
 
-    describe("roundListOpen", function () {
+    describe("roundListOpen after load", function () {
         var roundListOpen;
 
         beforeEach(function () {

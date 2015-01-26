@@ -3,21 +3,9 @@ var midgardApp = angular.module('midgardApp');
 midgardApp.controller('CombatCtrl', ['$scope', '$http', 'midgard', function ($scope, $http, midgard) {
     var group;
 
-    this.round = undefined;
-
     var getRoundList = function () {
-        var result = [];
-        var group;
-
-        for (var i = 0; i < $scope.data.groupList.length; i++) {
-            group = $scope.data.groupList[i];
-            result = result.concat(group.memberList);
-        }
-
-        return result.sort(function (a, b) {
-            return b.rw - a.rw;
-        });
-    }
+        return midgard.roundList();
+    };
 
     var getRound = function () {
         if (!this.round) {
@@ -39,7 +27,7 @@ midgardApp.controller('CombatCtrl', ['$scope', '$http', 'midgard', function ($sc
         }
 
         return this.round;
-    }
+    };
 
     $scope.data = {};
     $scope.data.groupList = [];
@@ -63,21 +51,29 @@ midgardApp.controller('CombatCtrl', ['$scope', '$http', 'midgard', function ($sc
 
         });
 
+    $scope.load = function () {
+        console.log('CombatCtrl load entered');
+        midgard.load(function(){
+            console.log('midgard.load callback started');
+            $scope.data.roundList = midgard.roundList();
+        });
+    };
+
     $scope.roundList = function () {
-        var round = getRound();
+        var round = midgard.round();
 
         return round.roundList;
-    }
+    };
 
     $scope.roundListOpen = function () {
         var round = getRound();
 
         return round.roundListOpen;
-    }
+    };
 
     $scope.roundListDone = function () {
         var round = getRound();
 
         return round.roundListDone;
-    }
+    };
 }]);
