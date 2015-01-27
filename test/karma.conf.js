@@ -11,6 +11,7 @@ module.exports = function (config) {
             'app/js/Combatant.js',
             'app/js/app.js',
             'app/js/midgard.js',
+            'app/js/roundActionCtrl.js',
             'app/js/combatCtrl.js',
             'app/js/**/*Ctrl.js',
             'test/unit/**/*.js'

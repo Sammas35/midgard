@@ -78,7 +78,7 @@ describe('midgard', function () {
         beforeEach(function () {
             midgard.load();
             $httpBackend.flush();
-            roundList = midgard.roundList();
+            roundList = midgard.roundList;
         });
 
         it("should exist", function () {
@@ -113,17 +113,17 @@ describe('midgard', function () {
         it('should move the first combatant from current to roundListDone', function () {
             midgard.nextCombatant();
 
-            expect(midgard.current().name).toBe('Ork 2');
+            expect(midgard.current.name).toBe('Ork 2');
 
-            expect(midgard.roundListDone().length).toBe(1);
-            expect(midgard.roundListDone()[0].name).toBe('Joe');
+            expect(midgard.roundListDone.length).toBe(1);
+            expect(midgard.roundListDone[0].name).toBe('Joe');
 
-            expect(midgard.roundListOpen().length).toBe(5);
-            expect(midgard.roundListOpen()[0].name).toBe('Ork 4');
-            expect(midgard.roundListOpen()[1].name).toBe('Ork 3');
-            expect(midgard.roundListOpen()[2].name).toBe('Ork 5');
-            expect(midgard.roundListOpen()[3].name).toBe('Ork 1');
-            expect(midgard.roundListOpen()[4].name).toBe('Jim');
+            expect(midgard.roundListOpen.length).toBe(5);
+            expect(midgard.roundListOpen[0].name).toBe('Ork 4');
+            expect(midgard.roundListOpen[1].name).toBe('Ork 3');
+            expect(midgard.roundListOpen[2].name).toBe('Ork 5');
+            expect(midgard.roundListOpen[3].name).toBe('Ork 1');
+            expect(midgard.roundListOpen[4].name).toBe('Jim');
         })
     });
 
@@ -133,7 +133,7 @@ describe('midgard', function () {
         beforeEach(function () {
             midgard.load();
             $httpBackend.flush();
-            roundListDone = midgard.roundListDone();
+            roundListDone = midgard.getRound().roundListDone;
         })
 
         it("should exist and be empty", function () {
@@ -148,7 +148,7 @@ describe('midgard', function () {
         beforeEach(function () {
             midgard.load();
             $httpBackend.flush();
-            current = midgard.current();
+            current = midgard.getRound().current;
         })
 
         it("should exist and be Joe", function () {
@@ -163,7 +163,7 @@ describe('midgard', function () {
         beforeEach(function () {
             midgard.load();
             $httpBackend.flush();
-            roundListOpen = midgard.roundListOpen();
+            roundListOpen = midgard.getRound().roundListOpen;
         })
 
         it("should exist and have 6 member", function () {

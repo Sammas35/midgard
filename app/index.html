@@ -15,6 +15,7 @@
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/midgard.js"></script>
     <script type="text/javascript" src="js/combatCtrl.js"></script>
+    <script type="text/javascript" src="js/roundActionCtrl.js"></script>
 </head>
 <body>
 <div ng-controller="CombatCtrl">
@@ -23,7 +24,7 @@
     </header>
 
     <section>
-        <div class="spalte" ng-repeat="group in data.groupList">
+        <div class="spalte" ng-repeat="group in midgard.groupList">
             <p>
                 <strong>{{group.name}}</strong>
             </p>
@@ -34,17 +35,28 @@
             </ul>
         </div>
     </section>
-    <section>
-        <div class="combatant" ng-repeat="comb in roundListDone()">
-            <mas-combatant comb="comb"></mas-combatant>
 
-            <div class="meter" style="width: 100px;">
-                <div style="width:{{comb.remainingHealth()}}%;background-color: {{comb.currentLp|lpColor}}"></div>
-            </div>
-            <!--<div class="meter" style="width: 100px;">-->
-            <!--<div style="width:{{comb.remainingHealth()}}%;background-color: {{comb.currentLp|lpColor}}"></div>-->
-            <!--</div>-->
+    <section style="clear:both">
+        <div>Fertig</div>
+        <div class="grayed">
+            <mas-combatant style="width:200px;" class="grayed" comb="comb"
+                           ng-repeat="comb in midgard.roundListDone"></mas-combatant>
         </div>
+
+        <div>Aktuell</div>
+        <div class="marked">
+            <mas-combatant comb="midgard.current"></mas-combatant>
+            <mas-roundaction></mas-roundaction>
+        </div>
+
+        <div>Offen</div>
+        <!--<div class="combatant" ng-repeat="comb in midgard.roundListOpen">-->
+        <mas-combatant comb="comb" ng-repeat="comb in midgard.roundListOpen"></mas-combatant>
+
+        <!--<div class="meter" style="width: 100px;">-->
+        <!--<div style="width:{{comb.remainingHealth()}}%;background-color: {{comb.currentLp|lpColor}}"></div>-->
+        <!--</div>-->
+        <!--</div>-->
     </section>
 </div>
 </body>

@@ -21,7 +21,7 @@ midgardApp.factory('midgard', ['$http', function ($http) {
         });
     };
 
-    var getRound = function () {
+    midgard.getRound = function () {
         if (!midgard.round) {
             var current;
             var roundList;
@@ -43,6 +43,15 @@ midgardApp.factory('midgard', ['$http', function ($http) {
         return midgard.round;
     }
 
+    var initRound = function () {
+        midgard.roundNumber = 1;
+
+        midgard.roundList = getRoundList();
+        midgard.roundListDone = [];
+        midgard.roundListOpen = midgard.roundList.slice();
+        midgard.current = midgard.roundListOpen.shift();
+    };
+
     midgard.groupList = [];
 
     midgard.load = function (callback) {
@@ -51,6 +60,8 @@ midgardApp.factory('midgard', ['$http', function ($http) {
                 var group;
                 var comb;
                 var i, j;
+
+                dump('groups loaded');
 
                 midgard.groupList = response.data.groupList;
 
@@ -63,41 +74,19 @@ midgardApp.factory('midgard', ['$http', function ($http) {
                     }
                 }
 
+                initRound();
+
                 if(callback) {
                     callback();
                 }
             });
     };
 
-    midgard.roundList = function () {
-        var round = getRound();
-
-        return round.roundList;
-    }
-
-    midgard.roundListDone = function () {
-        var round = getRound();
-
-        return round.roundListDone;
-    }
-
-    midgard.current = function () {
-        var round = getRound();
-
-        return round.current;
-    }
-
-    midgard.roundListOpen = function () {
-        var round = getRound();
-
-        return round.roundListOpen;
-    }
+    midgard.roundList = [];
 
     midgard.nextCombatant = function () {
-        var round = getRound();
-
-        round.roundListDone.push(round.current);
-        round.current = round.roundListOpen.shift();
+        midgard.roundListDone.push(midgard.current);
+        midgard.current = midgard.roundListOpen.shift();
     }
 
     return midgard;

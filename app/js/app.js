@@ -8,29 +8,29 @@ midgardApp.filter('lpColor', function () {
 
         if (angular.isNumber(currentLP)) {
             lp = parseInt(currentLP);
-            if (lp < 0) {
-                return '#ff0000';
-            }
             if (lp < 4) {
-                return '#ff6600';
+                return '#ff0000';
             }
             return '#33cc33';
         }
     };
 });
 
-midgardApp.directive('masCombatant', function () {
-    var getTemplate = function (element, attrs) {
-        console.log(angular.toJson(attrs.comb));
-        if (attrs.comb.isCurrent()) {
-            console.log('detail');
-            return 'mas-combatant-detail.html';
-        } else {
-            console.log('standard');
-            return 'mas-combatant.html';
-        }
-    }
+midgardApp.filter('apColor', function () {
+    return function (currentAP) {
+        var lp;
 
+        if (angular.isNumber(currentAP)) {
+            lp = parseInt(currentAP);
+            if (lp === 0) {
+                return '#ffffff';
+            }
+                return '#0000ff';
+        }
+    };
+});
+
+midgardApp.directive('masCombatant', function () {
     return {
         restrict: 'E',
         scope: {
@@ -39,4 +39,15 @@ midgardApp.directive('masCombatant', function () {
         templateUrl: 'mas-combatant.html'
     };
 });
+
+midgardApp.directive('masRoundaction', ['midgard', function (midgard) {
+    return {
+        restrict: 'E',
+        scope: {
+            comb: '='
+        },
+        templateUrl: 'mas-roundaction.html'
+    };
+}]);
+
 

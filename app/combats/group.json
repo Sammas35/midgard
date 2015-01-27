@@ -7,13 +7,17 @@
           "name": "Jim",
           "rw": 68,
           "lp": 16,
-          "currentLp": 8
+          "ap" : 45,
+          "currentLp": 8,
+          "currentAp": 12
         },
         {
           "name": "Joe",
           "rw": 85,
           "lp": 15,
-          "currentLp": 14
+          "ap" : 54,
+          "currentLp": 14,
+          "currentAp": 35
         }
       ]
     },
@@ -24,31 +28,41 @@
           "name": "Ork 1",
           "rw": 70,
           "lp": 14,
-          "currentLp": 2
+          "ap" : 24,
+          "currentLp": 2,
+          "currentAp": 0
         },
         {
           "name": "Ork 2",
           "rw": 74,
           "lp": 16,
-          "currentLp": 16
+          "ap" : 23,
+          "currentLp": 16,
+          "currentAp": 2
         },
         {
           "name": "Ork 3",
           "rw": 72,
           "lp": 18,
-          "currentLp": 18
+          "ap" : 29,
+          "currentLp": 18,
+          "currentAp": 0
         },
         {
           "name": "Ork 4",
           "rw": 73,
           "lp": 14,
-          "currentLp": -10
+          "ap" : 27,
+          "currentLp": -10,
+          "currentAp": 0
         },
         {
           "name": "Ork 5",
           "rw": 71,
           "lp": 16,
-          "currentLp": 1
+          "ap" : 29,
+          "currentLp": 1,
+          "currentAp": 0
         }
       ]
     }

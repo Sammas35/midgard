@@ -1,4 +1,15 @@
-<span>
-    {{comb.name}}
-    {{comb.currentLp}}/{{comb.lp}}
-</span>
+<div ng-show="comb" class="combatant" ng-class="(comb.currentLp < 4)?'defenseless':''">
+    <div style="float: left;">
+        <div class="meter" style="width: 100px;height: 8px;">
+            <div style="width:{{comb.remainingHealth()}}%;background-color: {{comb.currentLp|lpColor}}"></div>
+        </div>
+        <div class="meter" style="width: 100px;height: 8px;">
+            <div style="width:{{comb.remainingAp()}}%;background-color: {{comb.currentAp|apColor}}"></div>
+        </div>
+    </div>
+
+    <span>
+        <span ng-class="(comb.currentLp < 4)?'defenseless':''">{{comb.name}}</span>
+        {{comb.currentLp}}/{{comb.lp}}
+    </span>
+</div>
