@@ -3,8 +3,6 @@ var midgardApp = angular.module('midgardApp');
 midgardApp.factory('midgard', ['$http', function ($http) {
     var midgard = {};
 
-    dump('Start of midgard service');
-
     midgard.round = undefined;
 
     midgard.groupList = [];
@@ -48,14 +46,11 @@ midgardApp.factory('midgard', ['$http', function ($http) {
     midgard.groupList = [];
 
     midgard.load = function (callback) {
-        dump('midgard.load started');
         $http.get('combats/group.json')
             .then(function (response) {
                 var group;
                 var comb;
                 var i, j;
-
-                dump('midgard.load promise.then entered');
 
                 midgard.groupList = response.data.groupList;
 
@@ -69,9 +64,7 @@ midgardApp.factory('midgard', ['$http', function ($http) {
                 }
 
                 if(callback) {
-                    dump('calls callback inside midgard.load')
                     callback();
-                    dump('callback inside midgard.load called')
                 }
             });
     };

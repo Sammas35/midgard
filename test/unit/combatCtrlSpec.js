@@ -43,7 +43,7 @@ describe("CombatCtrl", function () {
 
         scope = $rootScope.$new();
 
-        ctrl = $controller('CombatCtrl', {$scope: scope, midgard: midgard});
+        ctrl = $controller('CombatCtrl', {$scope: scope, $http: $httpBackend, midgard: midgard});
 
         ctrl.load();
 

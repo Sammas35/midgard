@@ -52,9 +52,9 @@ midgardApp.controller('CombatCtrl', ['$scope', '$http', 'midgard', function ($sc
         });
 
     $scope.load = function () {
-        console.log('CombatCtrl load entered');
+        dump('CombatCtrl load entered');
         midgard.load(function(){
-            console.log('midgard.load callback started');
+            dump('midgard.load callback started');
             $scope.data.roundList = midgard.roundList();
         });
     };
