@@ -6,6 +6,6 @@ midgardApp.controller('RoundActionCtrl', ['$scope', 'midgard', function ($scope,
     $scope.midgard = midgard;
 
     $scope.noAction = function () {
-
+        $scope.midgard.nextCombatant();
     }
 }]);
